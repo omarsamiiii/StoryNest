@@ -43,6 +43,10 @@ npm run typecheck
 npm run format:check
 ```
 
+## Repository Upload Check
+
+This repository includes a Silver-compatible root `Dockerfile`. Before upload, keep the repo private and zip the repository with its `.git/` directory included. See `docs/repository-submission.md`.
+
 ## Project Structure
 
 - `src/app` - App Router pages and route handlers.
