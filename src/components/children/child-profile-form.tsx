@@ -15,6 +15,7 @@ export function ChildProfileForm({
       <Field label="Nickname" hint="Use a nickname, not a full legal name.">
         <input
           className={inputClasses}
+          aria-label="Nickname"
           name="nickname"
           defaultValue={profile?.nickname}
           maxLength={40}
@@ -22,7 +23,12 @@ export function ChildProfileForm({
         />
       </Field>
       <Field label="Age range">
-        <select className={inputClasses} name="ageRange" defaultValue={profile?.ageRange ?? "5-6"}>
+        <select
+          className={inputClasses}
+          aria-label="Age range"
+          name="ageRange"
+          defaultValue={profile?.ageRange ?? "5-6"}
+        >
           {AGE_RANGES.map((age) => (
             <option key={age} value={age}>
               {age}
@@ -49,6 +55,7 @@ export function ChildProfileForm({
       <Field label="Preferred tone">
         <select
           className={inputClasses}
+          aria-label="Preferred tone"
           name="preferredTone"
           defaultValue={profile?.preferredTone ?? "calm"}
         >
