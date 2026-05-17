@@ -1,4 +1,20 @@
-import { BookOpen, CalendarDays, CreditCard, FolderHeart, Home, Library, Settings, Users } from "lucide-react";
+import {
+  BarChart3,
+  Bell,
+  BookOpen,
+  CalendarDays,
+  ClipboardCheck,
+  CreditCard,
+  GraduationCap,
+  FolderHeart,
+  Home,
+  Library,
+  ListChecks,
+  LockKeyhole,
+  Palette,
+  Settings,
+  Users
+} from "lucide-react";
 import { logoutAction } from "@/lib/auth/actions";
 import { Button } from "@/components/ui/button";
 
@@ -7,7 +23,14 @@ const nav = [
   ["/app/children", "Children", Users],
   ["/app/stories", "Library", Library],
   ["/app/collections", "Collections", FolderHeart],
+  ["/app/templates", "Templates", Palette],
+  ["/app/curriculum", "Curriculum", GraduationCap],
   ["/app/routine", "Routine", CalendarDays],
+  ["/app/insights", "Insights", BarChart3],
+  ["/app/reminders", "Reminders", Bell],
+  ["/app/moderation", "Review", ClipboardCheck],
+  ["/app/privacy", "Privacy", LockKeyhole],
+  ["/app/jobs", "Jobs", ListChecks],
   ["/app/stories/new", "Create", BookOpen],
   ["/app/billing", "Billing", CreditCard],
   ["/app/account", "Account", Settings]
