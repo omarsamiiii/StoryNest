@@ -21,7 +21,7 @@ const config: Config = {
         soft: "0 18px 60px rgba(61, 47, 34, 0.12)"
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "Inter", "system-ui", "sans-serif"]
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
       }
     }
   },
