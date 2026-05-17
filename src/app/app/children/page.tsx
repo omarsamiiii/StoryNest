@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { LinkButton } from "@/components/ui/link-button";
+import { PageHeader } from "@/components/ui/page-header";
 import { requireUser } from "@/lib/auth/session";
 import { repositories } from "@/lib/repositories";
 import { deleteChildProfileAction } from "@/lib/services/child-profile-actions";
@@ -17,15 +18,11 @@ export default async function ChildrenPage() {
 
   return (
     <main className="grid gap-6">
-      <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-        <div>
-          <h1 className="text-3xl font-bold">Child profiles</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Use privacy-conscious nickname profiles for story personalization.
-          </p>
-        </div>
-        <LinkButton href="/app/children/new">Create profile</LinkButton>
-      </div>
+      <PageHeader
+        title="Child profiles"
+        description="Use privacy-conscious nickname profiles for story personalization."
+        action={<LinkButton href="/app/children/new">Create profile</LinkButton>}
+      />
 
       {children.length ? (
         <div className="grid gap-4 md:grid-cols-2">

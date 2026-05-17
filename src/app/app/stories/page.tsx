@@ -1,6 +1,7 @@
 import { EmptyState } from "@/components/ui/empty-state";
 import { StoryCard } from "@/components/stories/story-card";
 import { StoryLibraryFilters } from "@/components/stories/story-library-filters";
+import { PageHeader } from "@/components/ui/page-header";
 import { requireUser } from "@/lib/auth/session";
 import { repositories } from "@/lib/repositories";
 import { storyLibraryQuerySchema } from "@/validation/story";
@@ -29,12 +30,10 @@ export default async function StoryLibraryPage({
 
   return (
     <main className="grid gap-6">
-      <div>
-        <h1 className="text-3xl font-bold">Story library</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Search, filter, favorite, and revisit saved bedtime stories.
-        </p>
-      </div>
+      <PageHeader
+        title="Story library"
+        description="Search, filter, favorite, and revisit saved bedtime stories."
+      />
       <StoryLibraryFilters children={children} themes={themes} defaults={query} />
       {stories.length ? (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
