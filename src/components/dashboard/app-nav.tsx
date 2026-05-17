@@ -1,4 +1,4 @@
-import { BookOpen, CreditCard, Home, Library, Settings, Users } from "lucide-react";
+import { BookOpen, CalendarDays, CreditCard, FolderHeart, Home, Library, Settings, Users } from "lucide-react";
 import { logoutAction } from "@/lib/auth/actions";
 import { Button } from "@/components/ui/button";
 
@@ -6,6 +6,8 @@ const nav = [
   ["/app", "Dashboard", Home],
   ["/app/children", "Children", Users],
   ["/app/stories", "Library", Library],
+  ["/app/collections", "Collections", FolderHeart],
+  ["/app/routine", "Routine", CalendarDays],
   ["/app/stories/new", "Create", BookOpen],
   ["/app/billing", "Billing", CreditCard],
   ["/app/account", "Account", Settings]

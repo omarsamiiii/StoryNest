@@ -2,11 +2,16 @@ import { Heart, Palette, Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LinkButton } from "@/components/ui/link-button";
+import { AddToCollectionForm } from "@/components/collections/add-to-collection-form";
 import { favoriteStoryAction } from "@/lib/services/story-actions";
 import { generateColoringPagesAction } from "@/lib/services/coloring-actions";
 import type { Story } from "@/types/story";
+import type { StoryCollection } from "@/types/collections";
 
-export function StoryReader({ story }: Readonly<{ story: Story }>) {
+export function StoryReader({
+  story,
+  collections = []
+}: Readonly<{ story: Story; collections?: StoryCollection[] }>) {
   return (
     <article className="mx-auto grid max-w-4xl gap-6">
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
@@ -69,6 +74,7 @@ export function StoryReader({ story }: Readonly<{ story: Story }>) {
           </form>
         </CardContent>
       </Card>
+      <AddToCollectionForm storyId={story.id} collections={collections} />
     </article>
   );
 }

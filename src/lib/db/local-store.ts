@@ -2,6 +2,8 @@ import type { User } from "@/types/auth";
 import type { Subscription } from "@/types/billing";
 import type { ChildProfile } from "@/types/children";
 import type { ColoringPage } from "@/types/coloring";
+import type { StoryCollection } from "@/types/collections";
+import type { RoutinePreferences } from "@/types/routine";
 import type { Story } from "@/types/story";
 
 export interface UsageRecord {
@@ -16,6 +18,8 @@ export interface LocalStore {
   children: ChildProfile[];
   stories: Story[];
   coloringPages: ColoringPage[];
+  collections: StoryCollection[];
+  routinePreferences: RoutinePreferences[];
   subscriptions: Subscription[];
   usage: UsageRecord[];
 }
@@ -32,6 +36,8 @@ export function getLocalStore(): LocalStore {
       children: [],
       stories: [],
       coloringPages: [],
+      collections: [],
+      routinePreferences: [],
       subscriptions: [],
       usage: []
     };
