@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { LinkButton } from "@/components/ui/link-button";
 import { UsageCard } from "@/components/dashboard/usage-card";
+import { SafetyNote } from "@/components/dashboard/safety-note";
 import { requireUser } from "@/lib/auth/session";
 import { repositories } from "@/lib/repositories";
 import { usageService } from "@/lib/services/usage-service";
@@ -39,7 +40,10 @@ export default async function DashboardPage() {
             </div>
           </CardContent>
         </Card>
-        <UsageCard usage={usage} />
+        <div className="grid gap-4">
+          <UsageCard usage={usage} />
+          <SafetyNote />
+        </div>
       </section>
 
       <section className="grid gap-4 md:grid-cols-2">
