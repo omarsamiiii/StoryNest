@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { PrintButton } from "@/components/ui/print-button";
 import { requireUser } from "@/lib/auth/session";
 import { repositories } from "@/lib/repositories";
 
@@ -15,7 +15,7 @@ export default async function PrintStoryPage({ params }: Readonly<{ params: Prom
         <a className="text-sm font-semibold text-primary" href={`/app/stories/${story.id}`}>
           Back to story
         </a>
-        <Button onClick={() => globalThis.print()}>Print story</Button>
+        <PrintButton label="Print story" />
       </div>
       <article className="print-surface rounded-lg border border-border bg-white p-8 shadow-soft">
         <h1 className="text-4xl font-bold">{story.title}</h1>
