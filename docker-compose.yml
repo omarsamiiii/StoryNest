@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: storynest
+      POSTGRES_USER: storynest
+      POSTGRES_PASSWORD: storynest
+    ports:
+      - "5432:5432"
+    volumes:
+      - storynest-postgres:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./db/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+
+volumes:
+  storynest-postgres:
