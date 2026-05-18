@@ -38,10 +38,11 @@ const nav = [
 
 export function AppNav({ parentName }: Readonly<{ parentName: string }>) {
   return (
-    <aside className="print-hidden border-b border-border bg-white md:min-h-screen md:border-b-0 md:border-r">
+    <aside className="print-hidden relative z-20 border-b border-border/70 bg-white/82 backdrop-blur md:min-h-screen md:border-b-0 md:border-r">
       <div className="flex items-center justify-between gap-4 px-4 py-4 md:block">
-        <a href="/app" className="font-semibold">
-          StoryNest
+        <a href="/app" className="flex items-center gap-2 font-bold">
+          <span className="grid size-9 place-items-center rounded-2xl bg-accent text-lg shadow-soft">✦</span>
+          <span>StoryNest</span>
         </a>
         <p className="hidden text-xs text-muted-foreground md:mt-1 md:block">Parent: {parentName}</p>
       </div>
@@ -50,9 +51,11 @@ export function AppNav({ parentName }: Readonly<{ parentName: string }>) {
           <a
             key={href}
             href={href}
-            className="flex min-h-10 items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+            className="group flex min-h-10 items-center gap-2 rounded-2xl px-3 py-2 text-sm font-semibold text-muted-foreground transition hover:-translate-y-0.5 hover:bg-accent/30 hover:text-foreground"
           >
-            <Icon size={16} aria-hidden="true" />
+            <span className="grid size-8 place-items-center rounded-xl bg-muted transition group-hover:bg-white">
+              <Icon size={16} aria-hidden="true" />
+            </span>
             {label}
           </a>
         ))}

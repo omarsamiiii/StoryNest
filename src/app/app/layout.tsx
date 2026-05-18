@@ -7,9 +7,9 @@ export default async function ProtectedLayout({ children }: Readonly<{ children:
   if (!session.user) redirect("/login");
 
   return (
-    <div className="min-h-screen md:grid md:grid-cols-[250px_1fr]">
+    <div className="storybook-shell min-h-screen md:grid md:grid-cols-[260px_1fr]">
       <AppNav parentName={session.user.name} />
-      <div className="min-w-0 px-4 py-6 md:px-8">{children}</div>
+      <div className="relative z-10 min-w-0 px-4 py-6 md:px-8">{children}</div>
     </div>
   );
 }
