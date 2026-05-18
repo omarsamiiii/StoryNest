@@ -3,17 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --background: 42 55% 97%;
-  --foreground: 224 34% 16%;
-  --muted: 34 30% 91%;
-  --muted-foreground: 222 14% 42%;
-  --border: 31 24% 84%;
-  --primary: 202 63% 28%;
-  --primary-foreground: 42 55% 97%;
-  --accent: 18 72% 61%;
-  --accent-foreground: 224 34% 16%;
+  --background: 47 100% 97%;
+  --foreground: 238 38% 20%;
+  --muted: 42 88% 91%;
+  --muted-foreground: 239 16% 42%;
+  --border: 31 75% 83%;
+  --primary: 261 74% 52%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 35 96% 61%;
+  --accent-foreground: 238 38% 20%;
   --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
+  --sky: 197 90% 72%;
+  --mint: 154 67% 75%;
+  --berry: 333 83% 66%;
+  --storybook: 288 73% 76%;
 }
 
 * {
@@ -27,8 +31,12 @@ html {
 
 body {
   min-height: 100%;
-  background: hsl(var(--background));
+  background:
+    radial-gradient(circle at top left, hsl(var(--sky) / 0.38), transparent 28rem),
+    radial-gradient(circle at 85% 10%, hsl(var(--storybook) / 0.26), transparent 24rem),
+    linear-gradient(180deg, hsl(var(--background)), hsl(42 100% 95%));
   color: hsl(var(--foreground));
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -41,6 +49,105 @@ input,
 select,
 textarea {
   font: inherit;
+}
+
+::selection {
+  background: hsl(var(--accent) / 0.42);
+}
+
+.storybook-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.storybook-shell::before,
+.storybook-shell::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.9;
+}
+
+.storybook-shell::before {
+  inset: 4rem auto auto -5rem;
+  width: 14rem;
+  height: 14rem;
+  background: hsl(var(--mint) / 0.42);
+  animation: floaty 9s ease-in-out infinite;
+}
+
+.storybook-shell::after {
+  right: -4rem;
+  bottom: 6rem;
+  width: 12rem;
+  height: 12rem;
+  background: hsl(var(--berry) / 0.22);
+  animation: floaty 11s ease-in-out infinite reverse;
+}
+
+.storybook-gradient {
+  background:
+    linear-gradient(135deg, hsl(var(--primary)), hsl(var(--berry))),
+    hsl(var(--primary));
+}
+
+.storybook-pop {
+  transform: translateZ(0);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.storybook-pop:hover {
+  transform: translateY(-3px);
+}
+
+.sparkle-drift {
+  animation: sparkle-drift 4.8s ease-in-out infinite;
+}
+
+.delay-150 {
+  animation-delay: 150ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0.8rem, -1.1rem, 0) scale(1.04);
+  }
+}
+
+@keyframes sparkle-drift {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-0.45rem) rotate(5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
 }
 
 @media print {

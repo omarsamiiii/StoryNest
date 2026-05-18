@@ -15,10 +15,16 @@ const config: Config = {
         accent: "hsl(var(--accent))",
         "accent-foreground": "hsl(var(--accent-foreground))",
         destructive: "hsl(var(--destructive))",
-        "destructive-foreground": "hsl(var(--destructive-foreground))"
+        "destructive-foreground": "hsl(var(--destructive-foreground))",
+        sky: "hsl(var(--sky))",
+        mint: "hsl(var(--mint))",
+        berry: "hsl(var(--berry))",
+        storybook: "hsl(var(--storybook))"
       },
       boxShadow: {
-        soft: "0 18px 60px rgba(61, 47, 34, 0.12)"
+        soft: "0 18px 60px rgba(88, 64, 42, 0.13)",
+        story: "0 18px 0 rgba(63, 45, 31, 0.08), 0 24px 60px rgba(88, 64, 42, 0.16)",
+        glow: "0 0 0 6px rgba(255, 190, 92, 0.20), 0 20px 65px rgba(130, 79, 255, 0.20)"
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]

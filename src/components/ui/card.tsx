@@ -5,7 +5,12 @@ export function Card({
   children
 }: Readonly<{ className?: string; children: React.ReactNode }>) {
   return (
-    <section className={cn("rounded-lg border border-border bg-white shadow-soft", className)}>
+    <section
+      className={cn(
+        "storybook-pop rounded-2xl border border-border/80 bg-white/92 shadow-soft backdrop-blur",
+        className
+      )}
+    >
       {children}
     </section>
   );
@@ -22,7 +27,7 @@ export function CardTitle({
   className,
   children
 }: Readonly<{ className?: string; children: React.ReactNode }>) {
-  return <h2 className={cn("text-xl font-semibold tracking-normal", className)}>{children}</h2>;
+  return <h2 className={cn("text-xl font-bold tracking-normal", className)}>{children}</h2>;
 }
 
 export function CardDescription({
