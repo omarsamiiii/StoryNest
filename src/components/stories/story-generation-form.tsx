@@ -50,14 +50,24 @@ export function StoryGenerationForm({ children }: Readonly<{ children: ChildProf
           </select>
         </Field>
       </div>
-      <label className="flex items-center justify-between gap-4 rounded-2xl border border-border bg-mint/30 p-4 text-sm font-semibold">
+      <label
+        htmlFor="bedtimeSafe"
+        className="flex items-center justify-between gap-4 rounded-2xl border border-border bg-mint/30 p-4 text-sm font-semibold"
+      >
         <span>
           Bedtime-safe mode
           <span className="block text-xs font-normal text-muted-foreground">
             Keeps conflict gentle, avoids scary details, and closes with calm pacing.
           </span>
         </span>
-        <input className="size-5 accent-primary" type="checkbox" name="bedtimeSafe" defaultChecked />
+        <input
+          id="bedtimeSafe"
+          aria-label="Bedtime-safe mode"
+          className="size-5 accent-primary"
+          type="checkbox"
+          name="bedtimeSafe"
+          defaultChecked
+        />
       </label>
       <Field label="Optional parent instruction">
         <textarea
@@ -66,7 +76,7 @@ export function StoryGenerationForm({ children }: Readonly<{ children: ChildProf
           placeholder="Include a gentle reminder about cleaning up toys."
         />
       </Field>
-      <Button type="submit" className="min-h-12 text-base">
+      <Button type="submit" aria-label="Generate story" className="min-h-12 text-base">
         ✨ Generate story
       </Button>
     </form>
