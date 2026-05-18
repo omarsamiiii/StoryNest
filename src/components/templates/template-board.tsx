@@ -21,7 +21,8 @@ export function TemplateBoard({ recommendations }: Readonly<TemplateBoardProps>)
     <div className="space-y-6">
       <section className="grid gap-4 lg:grid-cols-3">
         {templates.map((template) => (
-          <Card key={template.id}>
+          <Card key={template.id} className="overflow-hidden">
+            <div className="h-2 bg-gradient-to-r from-storybook via-sky to-accent" />
             <CardHeader>
               <div className="flex items-center justify-between gap-3">
                 <CardTitle className="text-lg">{template.name}</CardTitle>
@@ -32,7 +33,7 @@ export function TemplateBoard({ recommendations }: Readonly<TemplateBoardProps>)
               <p>{template.description}</p>
               <div className="flex flex-wrap gap-2">
                 {template.interests.map((interest) => (
-                  <span key={interest} className="rounded-full bg-muted px-2 py-1 text-xs">
+                  <span key={interest} className="rounded-full bg-muted px-3 py-1 text-xs font-semibold">
                     {interest}
                   </span>
                 ))}
@@ -67,7 +68,7 @@ export function TemplateBoard({ recommendations }: Readonly<TemplateBoardProps>)
 
       <section className="grid gap-4 lg:grid-cols-2">
         {recommendations.map((child) => (
-          <Card key={child.childProfileId}>
+          <Card key={child.childProfileId} className="bg-gradient-to-br from-white to-sky/20">
             <CardHeader>
               <CardTitle className="text-lg">{child.childNickname}&apos;s next story ideas</CardTitle>
             </CardHeader>
@@ -78,7 +79,10 @@ export function TemplateBoard({ recommendations }: Readonly<TemplateBoardProps>)
               <p className="text-xs text-muted-foreground">{child.reason}</p>
               <div className="space-y-3">
                 {child.templates.map((recommendation) => (
-                  <div key={recommendation.template.id} className="rounded-md border border-border p-3">
+                  <div
+                    key={recommendation.template.id}
+                    className="rounded-2xl border border-border bg-white/75 p-3 shadow-soft"
+                  >
                     <div className="flex items-center justify-between gap-3">
                       <p className="font-medium">{recommendation.template.name}</p>
                       <Badge>{recommendation.score}</Badge>

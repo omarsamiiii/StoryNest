@@ -4,8 +4,13 @@ import type { StoryReviewRecord } from "@/types/moderation";
 export function ModerationPanel({ reviews }: Readonly<{ reviews: StoryReviewRecord[] }>) {
   if (!reviews.length) {
     return (
-      <Card>
-        <CardHeader><CardTitle>No flagged reviews</CardTitle></CardHeader>
+      <Card className="bg-gradient-to-br from-white to-mint/30">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <span className="grid size-10 place-items-center rounded-2xl bg-mint/60">✓</span>
+            No flagged reviews
+          </CardTitle>
+        </CardHeader>
         <CardContent className="text-sm text-muted-foreground">
           Story reviews that need attention will appear here.
         </CardContent>
@@ -16,7 +21,8 @@ export function ModerationPanel({ reviews }: Readonly<{ reviews: StoryReviewReco
   return (
     <div className="grid gap-4">
       {reviews.map((review) => (
-        <Card key={review.id}>
+        <Card key={review.id} className="overflow-hidden">
+          <div className="h-2 bg-gradient-to-r from-berry to-accent" />
           <CardHeader>
             <CardTitle className="text-lg">Story review: {review.storyId}</CardTitle>
             <p className="text-sm text-muted-foreground">
@@ -25,7 +31,10 @@ export function ModerationPanel({ reviews }: Readonly<{ reviews: StoryReviewReco
           </CardHeader>
           <CardContent className="grid gap-3 text-sm leading-6 text-muted-foreground">
             {review.result.findings.map((finding) => (
-              <div key={`${review.id}-${finding.ruleId}`} className="rounded-md border border-border p-3">
+              <div
+                key={`${review.id}-${finding.ruleId}`}
+                className="rounded-2xl border border-border bg-muted/45 p-3"
+              >
                 <strong className="text-foreground">{finding.label}</strong>
                 <p>{finding.recommendation}</p>
                 {finding.excerpt ? <p className="mt-1">Excerpt: {finding.excerpt}</p> : null}
