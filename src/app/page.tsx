@@ -1,4 +1,4 @@
-import { CheckCircle2, Moon, Palette, ShieldCheck, Sparkles } from "lucide-react";
+import { CheckCircle2, Moon, Palette, ShieldCheck, Sparkles, WandSparkles } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { HeroVisual } from "@/components/marketing/hero-visual";
 import { LinkButton } from "@/components/ui/link-button";
@@ -22,9 +22,10 @@ export default function LandingPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+        <section className="storybook-shell mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.05fr_0.95fr] md:items-center md:py-20">
           <div>
-            <p className="mb-4 inline-flex rounded-full border border-border bg-white px-3 py-1 text-sm font-semibold text-muted-foreground">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/80 px-4 py-2 text-sm font-semibold text-muted-foreground shadow-soft backdrop-blur">
+              <WandSparkles size={16} className="text-accent" aria-hidden="true" />
               Parent-controlled bedtime creativity
             </p>
             <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-normal md:text-6xl">
@@ -40,19 +41,29 @@ export default function LandingPage() {
                 View pricing
               </LinkButton>
             </div>
+            <div className="mt-8 grid max-w-xl grid-cols-3 gap-3 text-center text-xs font-semibold text-muted-foreground">
+              {["No child chat", "Mock AI ready", "Print-friendly"].map((item) => (
+                <span key={item} className="rounded-2xl bg-white/75 px-3 py-3 shadow-soft">
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
           <HeroVisual />
         </section>
 
-        <section id="how" className="bg-white py-16">
+        <section id="how" className="bg-white/72 py-16 backdrop-blur">
           <div className="mx-auto max-w-6xl px-4">
-            <h2 className="text-3xl font-bold">How it works</h2>
+            <h2 className="text-3xl font-bold">A cozy routine in three steps</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {["Create a parent account", "Add a child nickname profile", "Generate, save, print"].map(
                 (step, index) => (
-                  <Card key={step}>
+                  <Card key={step} className="relative overflow-hidden">
+                    <div className="absolute right-4 top-4 text-5xl opacity-20">
+                      {["☁", "⭐", "🌈"][index]}
+                    </div>
                     <CardHeader>
-                      <span className="grid size-10 place-items-center rounded-md bg-muted font-bold">
+                      <span className="grid size-12 place-items-center rounded-2xl bg-accent font-bold text-accent-foreground shadow-soft">
                         {index + 1}
                       </span>
                       <CardTitle>{step}</CardTitle>
@@ -69,10 +80,11 @@ export default function LandingPage() {
 
         <section className="mx-auto max-w-6xl px-4 py-16">
           <div className="grid gap-4 md:grid-cols-3">
-            {features.map(([title, description]) => (
-              <Card key={title}>
+            {features.map(([title, description], index) => (
+              <Card key={title} className="overflow-hidden">
+                <div className={["h-2 bg-sky", "h-2 bg-berry", "h-2 bg-mint"][index]} />
                 <CardHeader>
-                  <Sparkles className="text-accent" aria-hidden="true" />
+                  <Sparkles className="sparkle-drift text-accent" aria-hidden="true" />
                   <CardTitle>{title}</CardTitle>
                 </CardHeader>
                 <CardContent className="text-sm leading-6 text-muted-foreground">
@@ -83,7 +95,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="safety" className="bg-primary py-16 text-primary-foreground">
+        <section id="safety" className="storybook-gradient py-16 text-primary-foreground">
           <div className="mx-auto grid max-w-6xl gap-8 px-4 md:grid-cols-[0.8fr_1.2fr]">
             <div>
               <ShieldCheck size={40} aria-hidden="true" />
@@ -136,7 +148,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="bg-white py-16">
+        <section className="bg-white/72 py-16 backdrop-blur">
           <div className="mx-auto max-w-4xl px-4">
             <h2 className="text-3xl font-bold">FAQ</h2>
             <div className="mt-6 grid gap-3">
