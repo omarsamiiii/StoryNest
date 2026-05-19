@@ -13,6 +13,7 @@ import {
   LockKeyhole,
   Palette,
   Settings,
+  Trophy,
   Users
 } from "lucide-react";
 import { logoutAction } from "@/lib/auth/actions";
@@ -25,6 +26,7 @@ const nav = [
   ["/app/collections", "Collections", FolderHeart],
   ["/app/templates", "Templates", Palette],
   ["/app/curriculum", "Curriculum", GraduationCap],
+  ["/app/milestones", "Milestones", Trophy],
   ["/app/routine", "Routine", CalendarDays],
   ["/app/insights", "Insights", BarChart3],
   ["/app/reminders", "Reminders", Bell],
