@@ -9,6 +9,7 @@ import type { BedtimeReminder } from "@/types/notifications";
 import type { RoutinePreferences } from "@/types/routine";
 import type { Story } from "@/types/story";
 import type { StoryReviewRecord } from "@/types/moderation";
+import type { MoodCheckIn, ReadingSession } from "@/types/wellbeing";
 
 export interface UsageRecord {
   userId: string;
@@ -30,6 +31,8 @@ export interface LocalStore {
   storyReviews: StoryReviewRecord[];
   generationJobs: GenerationJob[];
   bedtimeReminders: BedtimeReminder[];
+  moodCheckIns: MoodCheckIn[];
+  readingSessions: ReadingSession[];
 }
 
 const globalForStore = globalThis as typeof globalThis & {
@@ -51,7 +54,9 @@ export function getLocalStore(): LocalStore {
       auditLogs: [],
       storyReviews: [],
       generationJobs: [],
-      bedtimeReminders: []
+      bedtimeReminders: [],
+      moodCheckIns: [],
+      readingSessions: []
     };
   }
 

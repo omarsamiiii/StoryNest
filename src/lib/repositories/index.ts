@@ -3,6 +3,8 @@ import { AuditLogRepository } from "@/lib/repositories/audit-log-repository";
 import { BedtimeReminderRepository } from "@/lib/repositories/bedtime-reminder-repository";
 import { ColoringPageRepository } from "@/lib/repositories/coloring-page-repository";
 import { GenerationJobRepository } from "@/lib/repositories/generation-job-repository";
+import { MoodCheckInRepository } from "@/lib/repositories/mood-checkin-repository";
+import { ReadingSessionRepository } from "@/lib/repositories/reading-session-repository";
 import { StoryRepository } from "@/lib/repositories/story-repository";
 import { StoryCollectionRepository } from "@/lib/repositories/story-collection-repository";
 import { SubscriptionRepository } from "@/lib/repositories/subscription-repository";
@@ -23,5 +25,7 @@ export const repositories = {
   storyReviews: new StoryReviewRepository(),
   generationJobs: new GenerationJobRepository(),
   bedtimeReminders: new BedtimeReminderRepository(),
+  moodCheckIns: new MoodCheckInRepository(),
+  readingSessions: new ReadingSessionRepository(),
   usage: new UsageRepository()
 };

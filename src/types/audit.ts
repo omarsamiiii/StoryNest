@@ -12,6 +12,8 @@ export type AuditAction =
   | "collection.create"
   | "collection.story.add"
   | "routine.preferences.save"
+  | "mood.checkin"
+  | "reading.session"
   | "moderation.review"
   | "reminder.schedule"
   | "job.enqueue"
